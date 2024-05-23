@@ -1,0 +1,19 @@
+version: "3"
+services:
+  angular-rent-app:
+    build:
+      context: ./angular/rent-app
+    ports:
+      - "3001:80"
+
+  angular-sale-app:
+    build:
+      context: ./angular/sale-app
+    ports:
+      - "3002:80"
+
+  host-app:
+    build:
+      context: ./host-app
+    ports:
+      - "3000:80"
