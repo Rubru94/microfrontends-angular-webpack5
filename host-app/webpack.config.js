@@ -5,9 +5,9 @@ const ModuleFederationPlugin =
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'src', 'server.js'),
+  entry: path.resolve(__dirname, 'src', 'main.js'),
   plugins: [
-    new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new HtmlWebpackPlugin({ template: './src/public/index.html' }),
     new ModuleFederationPlugin({
       name: 'host',
       remotes: {
