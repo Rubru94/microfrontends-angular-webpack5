@@ -7,7 +7,8 @@ module.exports = withModuleFederationPlugin({
   name: "mfPaymentApp",
 
   exposes: {
-    "./Component": "./projects/mf-payment-app/src/app/app.component.ts",
+    "./Component":
+      "./projects/mf-payment-app/src/app/payment/payment.component.ts",
   },
 
   shared: {
