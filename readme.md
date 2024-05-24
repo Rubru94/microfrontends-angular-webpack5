@@ -53,3 +53,11 @@
    ```
    ng s mf-shopping-app
    ```
+
+   ```
+   ng s mf-payment-app
+   ```
+
+   ```
+   ng s mf-host-shell-app
+   ```

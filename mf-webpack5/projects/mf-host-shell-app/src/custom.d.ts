@@ -1,2 +1,2 @@
-declare module 'mf-shopping-app/*';
-declare module 'mf-payment-app/*';
+declare module 'mfShoppingApp/*';
+declare module 'mfPaymentApp/*';

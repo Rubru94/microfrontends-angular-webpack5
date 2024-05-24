@@ -4,10 +4,11 @@ const {
 } = require("@angular-architects/module-federation/webpack");
 
 module.exports = withModuleFederationPlugin({
-  name: "mf-shopping-app",
+  name: "mfShoppingApp",
 
   exposes: {
-    "./Component": "./projects/mf-shopping-app/src/app/app.component.ts",
+    "./ProductsModule":
+      "./projects/mf-shopping-app/src/app/products/products.module.ts",
   },
 
   shared: {
