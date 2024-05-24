@@ -2,13 +2,13 @@ version: "3"
 services:
   angular-rent-app:
     build:
-      context: ./angular/rent-app
+      context: ./mf-angular/rent-app
     ports:
       - "3001:80"
 
   angular-sale-app:
     build:
-      context: ./angular/sale-app
+      context: ./mf-angular/sale-app
     ports:
       - "3002:80"
 

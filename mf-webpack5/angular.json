@@ -1,0 +1,352 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"commons-lib": {
+			"projectType": "library",
+			"root": "projects/commons-lib",
+			"sourceRoot": "projects/commons-lib/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/commons-lib/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/commons-lib/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/commons-lib/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/commons-lib/tsconfig.spec.json",
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						]
+					}
+				}
+			}
+		},
+		"mf-payment-app": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/mf-payment-app",
+			"sourceRoot": "projects/mf-payment-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/mf-payment-app",
+						"index": "projects/mf-payment-app/src/index.html",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/mf-payment-app/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/mf-payment-app/src/favicon.ico",
+							"projects/mf-payment-app/src/assets"
+						],
+						"styles": [
+							"projects/mf-payment-app/src/styles.scss"
+						],
+						"scripts": [],
+						"main": "projects/mf-payment-app/src/main.ts",
+						"extraWebpackConfig": "projects/mf-payment-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/mf-payment-app/webpack.prod.config.js"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "mf-payment-app:build:production",
+							"extraWebpackConfig": "projects/mf-payment-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildTarget": "mf-payment-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/mf-payment-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"buildTarget": "mf-payment-app:build",
+						"extraWebpackConfig": "projects/mf-payment-app/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/mf-payment-app/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/mf-payment-app/src/favicon.ico",
+							"projects/mf-payment-app/src/assets"
+						],
+						"styles": [
+							"projects/mf-payment-app/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"mf-shopping-app": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/mf-shopping-app",
+			"sourceRoot": "projects/mf-shopping-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/mf-shopping-app",
+						"index": "projects/mf-shopping-app/src/index.html",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/mf-shopping-app/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/mf-shopping-app/src/favicon.ico",
+							"projects/mf-shopping-app/src/assets"
+						],
+						"styles": [
+							"projects/mf-shopping-app/src/styles.scss"
+						],
+						"scripts": [],
+						"main": "projects/mf-shopping-app/src/main.ts",
+						"extraWebpackConfig": "projects/mf-shopping-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/mf-shopping-app/webpack.prod.config.js"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "mf-shopping-app:build:production",
+							"extraWebpackConfig": "projects/mf-shopping-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildTarget": "mf-shopping-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/mf-shopping-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"buildTarget": "mf-shopping-app:build",
+						"extraWebpackConfig": "projects/mf-shopping-app/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/mf-shopping-app/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/mf-shopping-app/src/favicon.ico",
+							"projects/mf-shopping-app/src/assets"
+						],
+						"styles": [
+							"projects/mf-shopping-app/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"mf-host-shell-app": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/mf-host-shell-app",
+			"sourceRoot": "projects/mf-host-shell-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/mf-host-shell-app",
+						"index": "projects/mf-host-shell-app/src/index.html",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/mf-host-shell-app/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/mf-host-shell-app/src/favicon.ico",
+							"projects/mf-host-shell-app/src/assets"
+						],
+						"styles": [
+							"projects/mf-host-shell-app/src/styles.scss"
+						],
+						"scripts": [],
+						"main": "projects/mf-host-shell-app/src/main.ts",
+						"extraWebpackConfig": "projects/mf-host-shell-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/mf-host-shell-app/webpack.prod.config.js"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "mf-host-shell-app:build:production",
+							"extraWebpackConfig": "projects/mf-host-shell-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildTarget": "mf-host-shell-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/mf-host-shell-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"buildTarget": "mf-host-shell-app:build",
+						"extraWebpackConfig": "projects/mf-host-shell-app/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/mf-host-shell-app/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/mf-host-shell-app/src/favicon.ico",
+							"projects/mf-host-shell-app/src/assets"
+						],
+						"styles": [
+							"projects/mf-host-shell-app/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
+	}
+}
