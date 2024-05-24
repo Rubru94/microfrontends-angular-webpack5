@@ -61,3 +61,15 @@
    ```
    ng s mf-host-shell-app
    ```
+
+6. To run all microfrontends at the same time we can use the **npm-run-all** dependency.
+
+   ```
+   npm run all
+   ```
+
+## Bibliography
+
+- [Microfrontends con Módulos Federados](https://rpenya.medium.com/documentaci%C3%B3n-de-proyecto-de-microfrontends-con-m%C3%B3dulos-federados-8943f5f85303)
+- [MICRO - FRONTEND con Angular y Module Federation](https://www.youtube.com/watch?v=12x2QpDCsfk)
+- [La Revolución de Micro Frontend: Module Federation con Angular](https://codigoencasa.com/la-revolucion-de-micro-frontend-module-federation-con-angular/)

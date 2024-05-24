@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'payment',
     loadComponent: () =>
-      import('mfPaymentApp/PaymentComponent').then((c) => c.PaymentComponent),
+      import('mfPaymentApp/Component').then((c) => c.PaymentComponent),
   },
 ];
 
