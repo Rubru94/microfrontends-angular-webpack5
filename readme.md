@@ -1,6 +1,6 @@
 # Microfrontends - Angular - Webpack 5
 
-## Demo
+## Demo mf-webpack5
 
 1. Create new workspace
 
