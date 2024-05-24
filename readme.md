@@ -47,3 +47,9 @@
    ```
    ng add @angular-architects/module-federation --project mf-payment-app --port 4202 --type remote
    ```
+
+5. Configure remote projects. Microfrontends allows us to run each project individually.
+
+   ```
+   ng s mf-shopping-app
+   ```
