@@ -12,6 +12,8 @@ export class CommonsLibService {
   channelPayment$ = this._channelSource.asObservable();
 
   sendData(product: ICommonProduct): void {
+    console.log(product);
+
     this._products.push(product);
     localStorage.setItem('products', JSON.stringify(this._products));
     this._channelSource.next(this._products.length);

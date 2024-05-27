@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ICommonProduct } from '@commons-lib';
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgFor],
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss'],
 })

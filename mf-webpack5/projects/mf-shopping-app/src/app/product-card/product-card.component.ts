@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+import { CurrencyPipe, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CommonsLibService } from '@commons-lib';
 import { IProductCard } from '../models/product-card.interface';
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgIf, CurrencyPipe],
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
 })
